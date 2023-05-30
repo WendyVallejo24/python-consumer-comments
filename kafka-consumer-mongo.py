@@ -51,7 +51,7 @@ for msg in consumer:
             'comment': comment
       }
       print(comment_rec)
-      comment_id = db.memes_comments.insert_one(comment_rec)
+      comment_id = db.artists_comments.insert_one(comment_rec)
       print("Comment inserted with record ids", comment_id)
     except Exception as e:
         print("Could not insert into MongoDB:")
@@ -72,7 +72,7 @@ for msg in consumer:
       db.artists_summary_comments.delete_many({})
       for i in agg_result:
          print(i)
-         summaryComments_id = db.artists_summary.insert_one(i)
+         summaryComments_id = db.artists_summary_comments.insert_one(i)
          print("Summary Comments inserted with record ids", summaryComments_id)
 
     except Exception as e:
